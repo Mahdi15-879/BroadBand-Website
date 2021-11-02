@@ -1,0 +1,23 @@
+// Variables
+$website-width: 1280px;
+$main-color: #0098da;
+$medium-color: #4c47c6;
+$light-color: #fff;
+$dark-color: #333;
+$p-color: #29313e;
+
+@mixin link-transform {
+  transition: color 0.4s;
+  &:hover {
+    color: $medium-color;
+  }
+}
+
+// Set Text Color
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}

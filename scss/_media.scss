@@ -1,0 +1,280 @@
+// Tablets & Smaller
+@media (max-width: 992px) {
+  #main-nav {
+    display: none;
+  }
+
+  .menu-wrap {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    .toggler {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      opacity: 0;
+    }
+
+    .hamburger {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      width: 60px;
+      height: 60px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hamburger Line */
+    .hamburger > div {
+      position: relative;
+      flex: none;
+      width: 50%;
+      height: 2px;
+      background: $main-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+    }
+
+    /* Hamburger Lines - Top & Bottom */
+    .hamburger > div::before,
+    .hamburger > div::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: -10px;
+      width: 100%;
+      height: 2px;
+      background: inherit;
+    }
+
+    /* Moves Line Down */
+    .hamburger > div::after {
+      top: 10px;
+    }
+
+    /* Toggler Animation */
+    .toggler:checked + .hamburger > div {
+      transform: rotate(135deg);
+    }
+
+    /* Turns Lines Into X */
+    .toggler:checked + .hamburger > div:before,
+    .toggler:checked + .hamburger > div:after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    /* Rotate On Hover When Checked */
+    .toggler:checked:hover + .hamburger > div {
+      transform: rotate(225deg);
+    }
+
+    /* Show Menu */
+    .toggler:checked ~ .menu {
+      visibility: visible;
+    }
+
+    .toggler:checked ~ .menu > div {
+      transform: scale(1);
+      transition-duration: 0.75s;
+    }
+
+    .toggler:checked ~ .menu > div > div {
+      opacity: 1;
+      transition: opacity 0.4s ease 0.4s;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu > div {
+      background: $dark-color;
+      opacity: 0.7;
+      border-radius: 50%;
+      width: 200vw;
+      height: 200vw;
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0);
+      transition: all 0.4s ease;
+    }
+
+    .menu > div > div {
+      text-align: center;
+      max-width: 90vw;
+      max-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .menu > div > div > ul > li {
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
+
+    .menu > div > div > ul > li > a {
+      color: $light-color;
+      text-decoration: none;
+      transition: color 0.4s ease;
+    }
+
+    .menu > div > div > ul > li > a:hover {
+      color: $medium-color;
+    }
+  }
+
+  .header-content {
+    margin-top: 3rem;
+    flex-direction: column;
+    .column-left {
+      order: 1;
+      width: 100% !important;
+    }
+    .column-right {
+      order: 0;
+      width: 100% !important;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .services {
+    margin-top: 250px;
+    .services-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2.5rem;
+      text-align: center;
+
+      .item {
+        background-color: $light-color;
+        border: 1px solid #cccccc;
+        border-radius: 10px;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+
+  .cover {
+    height: auto;
+
+    .cover-title {
+      font-size: 30px !important;
+      margin-top: 30px;
+    }
+
+    .cover-main-content {
+      .col-l {
+        width: 60%;
+        text-align: center;
+      }
+      .col-r {
+        display: none;
+      }
+    }
+  }
+}
+
+// Smartphones
+@media (max-width: 850px) {
+  .footer-row {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    .footer-col {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    margin-top: 100px;
+    .services-items {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr) !important;
+      grid-gap: 2.5rem;
+      text-align: center;
+      div {
+        &:last-child,
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .plan-row div {
+    &:first-child {
+      display: none;
+    }
+  }
+
+  .promises-itmes {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 4rem;
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .main-footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-gap: 2rem;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-footer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) !important;
+    grid-gap: 2rem;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-height: 600px) {
+  .services {
+    margin-top: 500px;
+  }
+
+  .menu > div > div > ul > li {
+    font-size: 1rem !important;
+    padding: 0.5rem !important;
+  }
+}
